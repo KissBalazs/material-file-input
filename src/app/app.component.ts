@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  myForm: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.myForm = fb.group({
+      files: [''],
+    });
+  }
+
+  submit() {
+    console.log('form group values:', this.myForm.value);
+  }
 }
